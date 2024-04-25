@@ -7,7 +7,7 @@ from igfold.utils.pdb import clean_pdb
 
 
 def is_heavy(seq):
-    chain = Chain(seq, scheme='chothia')
+    chain = Chain(seq, scheme='imgt')
 
     return chain.is_heavy_chain()
 
@@ -19,7 +19,7 @@ def rechain_pdb(pdb_file):
 
     for chain in structure.get_chains():
         seq = seq1(''.join([residue.resname for residue in chain]))
-        abnum_chain = Chain(seq, scheme='chothia')
+        abnum_chain = Chain(seq, scheme='imgt')
         chain_id = "H" if abnum_chain.is_heavy_chain() else "L"
         try:
             chain.id = chain_id
