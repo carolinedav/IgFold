@@ -37,7 +37,7 @@ def rechain_pdb(pdb_file):
 def renumber_pdb(
     in_pdb_file,
     out_pdb_file=None,
-    scheme="chothia",
+    scheme="imgt",
 ):
     """
     Renumber the pdb file.
@@ -80,7 +80,7 @@ def renumber_pdb(
     io.save(out_pdb_file)
 
 
-def truncate_seq(seq, scheme="chothia"):
+def truncate_seq(seq, scheme="imgt"):
     abnum_chain = Chain(seq, scheme=scheme)
     numbering = abnum_chain.positions.items()
     seq = "".join([r[1] for r in list(numbering)])
